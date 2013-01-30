@@ -1,13 +1,13 @@
 package org.uzzu.flexunithelper
 {
-import flash.display.DisplayObjectContainer;
-import flash.display.Stage;
+    import flash.display.DisplayObjectContainer;
+    import flash.display.Stage;
 
-import org.flexunit.assertThat;
-import org.flexunit.asserts.assertNotNull;
-import org.hamcrest.core.isA;
+    import org.flexunit.assertThat;
+    import org.flexunit.asserts.assertNotNull;
+    import org.hamcrest.core.isA;
 
-public class UtilitiesTest
+    public class UtilitiesTest
     {
         public var container:DisplayObjectContainer;
 
