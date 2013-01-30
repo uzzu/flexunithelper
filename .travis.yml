@@ -1,0 +1,14 @@
+language: java
+before_script:
+  - wget http://fpdownload.macromedia.com/pub/flashplayer/updaters/11/flashplayer_11_sa.i386.tar.gz
+  - tar -xvzf flashplayer_11_sa.i386.tar.gz
+  - mkdir bin
+  - mv flashplayerdebugger bin/
+  - export PATH=${PATH}:~/builds/uzzu/flexunithelper/bin
+  - sh -e /etc/init.d/xvfb start
+script: mvn clean test
+jdk:
+  - oraclejdk6
+notifications:
+  email:
+    - himeatball@gmail.com
