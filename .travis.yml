@@ -1,7 +1,7 @@
 language: java
 before_script:
   - wget http://fpdownload.macromedia.com/pub/flashplayer/updaters/11/flashplayer_11_sa_debug.i386.tar.gz
-  - tar -xvzf flashplayer_11_sa.i386.tar.gz
+  - tar xvzf flashplayer_11_sa.i386.tar.gz
   - mkdir bin
   - mv flashplayerdebugger bin/
   - export PATH=${PATH}:~/builds/uzzu/flexunithelper/bin
