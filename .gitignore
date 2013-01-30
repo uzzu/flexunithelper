@@ -1,0 +1,9 @@
+*~
+.*.swp
+.classpath
+.settings/
+.idea/
+*.iml
+*.iws
+log/
+target/

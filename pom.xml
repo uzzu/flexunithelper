@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.uzzu</groupId>
+    <artifactId>flexunithelper-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>flexunithelper-parent</name>
+    <description>flexunit testing helper library.</description>
+    <url>http://github.com/uzzu/flexunithelper</url>
+    <licenses>
+        <license>
+            <name>The MIT License</name>
+            <url>http://www.opensource org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:git@github.com:uzzu/flexunithelper.git</connection>
+        <developerConnection>scm:git:git@github.com:uzzu/flexunithelper.git</developerConnection>
+        <url>git@github.com:uzzu/flexunithelper.git</url>
+    </scm>
+    <developers>
+        <developer>
+            <id>uzzu</id>
+            <name>Hirokazu Uzu</name>
+            <email>himeatball at gmail dot com</email>
+            <roles>
+                <role>Author Developer</role>
+            </roles>
+            <timezone>+9</timezone>
+        </developer>
+    </developers>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.test.sourceEncoding>UTF-8</project.test.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <flex.flashPlayer.command>flashplayerdebugger</flex.flashPlayer.command>
+        <flex.mojos.version>4.0-SNAPSHOT</flex.mojos.version>
+        <flex.sdk.version>4.1.0.16248</flex.sdk.version>
+        <sonar.language>flex</sonar.language>
+        <sonar.dynamicanalysis>reuseReports</sonar.dynamicanalysis>
+        <sonar.surefire.reportspath>target\surefire-reports</sonar.surefire.reportspath>
+        <sonar.cobertura.reportpath>target\coverage\coverage.xml</sonar.cobertura.reportpath>
+    </properties>
+
+    <modules>
+        <module>flexunithelper</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>flex-framework</artifactId>
+            <version>${flex.sdk.version}</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.flexunit</groupId>
+            <artifactId>flexunit</artifactId>
+            <version>4.1-RC2</version>
+            <type>swc</type>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-as3</artifactId>
+            <version>1.1</version>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>flex-mojos-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>Cairngorm 3 maven repository</id>
+            <url>http://svn.code.sf.net/adobe/cairngorm/code/cairngorm3/maven-repository/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>flex-mojos-plugin-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <sourceDirectory>src/main/flex</sourceDirectory>
+        <testSourceDirectory>src/test/flex</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.flexmojos</groupId>
+                <artifactId>flexmojos-maven-plugin</artifactId>
+                <version>${flex.mojos.version}</version>
+                <extensions>true</extensions>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.adobe.flex</groupId>
+                        <artifactId>compiler</artifactId>
+                        <type>pom</type>
+                        <version>${flex.sdk.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <compilerWarning>
+                        <warn-no-constructor>false</warn-no-constructor>
+                    </compilerWarning>
+                    <staticLinkRuntimeSharedLibraries>true</staticLinkRuntimeSharedLibraries>
+                    <version_major>10</version_major>
+                    <version_minoer>0</version_minoer>
+                    <version_revision>0</version_revision>
+                    <coverage>true</coverage>
+                    <coverageReportFormat>
+                        <param>xml</param>
+                    </coverageReportFormat>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <aggregate>true</aggregate>
+                    <testTimeout>60000</testTimeout>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
