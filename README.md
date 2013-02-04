@@ -8,8 +8,8 @@ Supported Flex3, Flex4, and actionscript3.0-only project.
 
 How To Use?
 ----
-* Add maven2 dependency configuration, or [Download directly](https://oss.sonatype.org/content/repositories/snapshots/org/uzzu/flexunithelper)
-* Uses like [this](https://oss.sonatype.org/content/repositories/snapshots/org/uzzu/flexunithelper/)
+* Add maven2 dependency configuration, or [download directly](https://oss.sonatype.org/content/repositories/snapshots/org/uzzu/flexunithelper).
+* Uses like [this](https://github.com/uzzu/flexunithelper/blob/master/flexunithelper/src/test/flex/org/uzzu/flexunithelper/UtilitiesTest.as).
 
 Maven2 Configuration
 ----
